@@ -16,19 +16,19 @@ import retrofit2.http.Query;
  * Created by zic325 on 2017. 4. 10..
  */
 
-public class NetworkRequester {
+public class LottoRequester {
 
     private static final String URL = "http://www.nlotto.co.kr/";
 
-    private static final NetworkRequester instance = new NetworkRequester();
+    private static final LottoRequester instance = new LottoRequester();
 
     private Api api;
 
-    private NetworkRequester() {
+    private LottoRequester() {
         initialize();
     }
 
-    public static NetworkRequester getInstance() {
+    public static LottoRequester getInstance() {
         return instance;
     }
 

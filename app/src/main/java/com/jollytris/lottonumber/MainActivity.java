@@ -1,12 +1,10 @@
 package com.jollytris.lottonumber;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 
-import io.reactivex.annotations.NonNull;
-import io.reactivex.functions.Consumer;
-import io.reactivex.schedulers.Schedulers;
+import com.jakewharton.rxbinding2.view.RxView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -15,13 +13,24 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        NetworkRequester.getInstance().api().getWinNumber("getLottoNumber", 749)
-                .subscribeOn(Schedulers.io())
-                .subscribe(new Consumer<Lotto>() {
-                    @Override
-                    public void accept(@NonNull Lotto lotto) throws Exception {
-                        Log.d("TEST", lotto.toString());
-                    }
-                });
+        RxView.clicks(findViewById(R.id.btn_sample01)).subscribe(e -> {
+            startActivity(new Intent(this, SampleActivity01.class));
+        });
+
+        RxView.clicks(findViewById(R.id.btn_sample02)).subscribe(e -> {
+            startActivity(new Intent(this, SampleActivity02.class));
+        });
+
+        RxView.clicks(findViewById(R.id.btn_sample03)).subscribe(e -> {
+            startActivity(new Intent(this, SampleActivity03.class));
+        });
+
+        RxView.clicks(findViewById(R.id.btn_sample04)).subscribe(e -> {
+            startActivity(new Intent(this, SampleActivity04.class));
+        });
+
+        RxView.clicks(findViewById(R.id.btn_sample05)).subscribe(e -> {
+            startActivity(new Intent(this, SampleActivity05.class));
+        });
     }
 }

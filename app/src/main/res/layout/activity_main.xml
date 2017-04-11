@@ -2,21 +2,37 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:gravity="center"
     android:orientation="vertical">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:orientation="vertical">
+    <Button
+        android:id="@+id/btn_sample01"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sample01" />
 
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:orientation="vertical">
+    <Button
+        android:id="@+id/btn_sample02"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sample02" />
 
-    </LinearLayout>
+    <Button
+        android:id="@+id/btn_sample03"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sample03" />
+
+    <Button
+        android:id="@+id/btn_sample04"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sample04" />
+
+    <Button
+        android:id="@+id/btn_sample05"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sample05" />
 
 </LinearLayout>

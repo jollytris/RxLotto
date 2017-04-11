@@ -143,19 +143,15 @@ public class Lotto {
     @Override
     public String toString() {
         return "Lotto{" +
-                "bnusNo=" + bnusNo +
-                ", firstWinamnt=" + firstWinamnt +
-                ", totSellamnt=" + totSellamnt +
-                ", returnValue='" + returnValue + '\'' +
-                ", drwtNo3=" + drwtNo3 +
-                ", drwtNo2=" + drwtNo2 +
+                "drwNo=" + drwNo +
                 ", drwtNo1=" + drwtNo1 +
-                ", drwtNo6=" + drwtNo6 +
-                ", drwtNo5=" + drwtNo5 +
+                ", drwtNo2=" + drwtNo2 +
+                ", drwtNo3=" + drwtNo3 +
                 ", drwtNo4=" + drwtNo4 +
+                ", drwtNo5=" + drwtNo5 +
+                ", drwtNo6=" + drwtNo6 +
+                ", bnusNo=" + bnusNo +
                 ", drwNoDate='" + drwNoDate + '\'' +
-                ", drwNo=" + drwNo +
-                ", firstPrzwnerCo=" + firstPrzwnerCo +
                 '}';
     }
 }
