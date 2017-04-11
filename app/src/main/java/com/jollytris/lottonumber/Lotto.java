@@ -23,7 +23,7 @@ public class Lotto {
      */
 
     private int bnusNo;
-    private int firstWinamnt;
+    private long firstWinamnt;
     private long totSellamnt;
     private String returnValue;
     private int drwtNo3;
@@ -44,11 +44,11 @@ public class Lotto {
         this.bnusNo = bnusNo;
     }
 
-    public int getFirstWinamnt() {
+    public long getFirstWinamnt() {
         return firstWinamnt;
     }
 
-    public void setFirstWinamnt(int firstWinamnt) {
+    public void setFirstWinamnt(long firstWinamnt) {
         this.firstWinamnt = firstWinamnt;
     }
 
