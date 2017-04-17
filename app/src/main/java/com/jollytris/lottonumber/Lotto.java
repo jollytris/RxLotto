@@ -1,5 +1,8 @@
 package com.jollytris.lottonumber;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by zic325 on 2017. 4. 10..
  */
@@ -35,6 +38,17 @@ public class Lotto {
     private String drwNoDate;
     private int drwNo;
     private int firstPrzwnerCo;
+
+    public List<Integer> getDrwtNos() {
+        List<Integer> list = new ArrayList<>();
+        list.add(Integer.valueOf(drwtNo1));
+        list.add(Integer.valueOf(drwtNo2));
+        list.add(Integer.valueOf(drwtNo3));
+        list.add(Integer.valueOf(drwtNo4));
+        list.add(Integer.valueOf(drwtNo5));
+        list.add(Integer.valueOf(drwtNo6));
+        return list;
+    }
 
     public int getBnusNo() {
         return bnusNo;

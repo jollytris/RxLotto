@@ -2,7 +2,7 @@ package com.jollytris.lottonumber;
 
 import java.io.IOException;
 
-import io.reactivex.Observable;
+import io.reactivex.Flowable;
 import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
 import okhttp3.Response;
@@ -58,6 +58,6 @@ public class LottoRequester {
 
     public interface Api {
         @GET("common.do")
-        Observable<Lotto> getWinNumber(@Query("method") String method, @Query("drwNo") int drwNo);
+        Flowable<Lotto> getWinNumber(@Query("method") String method, @Query("drwNo") int drwNo);
     }
 }

@@ -6,7 +6,7 @@ import android.widget.TextView;
 
 import com.jakewharton.rxbinding2.view.RxView;
 
-import io.reactivex.Observable;
+import io.reactivex.Flowable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
 import io.reactivex.subjects.PublishSubject;
@@ -38,7 +38,7 @@ public class SampleActivity04 extends AppCompatActivity {
     }
 
 
-    private Observable<Lotto> getWinNumber(int number) {
+    private Flowable<Lotto> getWinNumber(int number) {
         return LottoRequester.getInstance().api().getWinNumber("getLottoNumber", number);
     }
 }
