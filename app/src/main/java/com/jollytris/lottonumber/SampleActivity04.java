@@ -27,6 +27,10 @@ public class SampleActivity04 extends AppCompatActivity {
                     subject.onNext(drawNo--);
                 });
 
+        subject();
+    }
+
+    private void subject() {
         subject = PublishSubject.create();
         subject.subscribe(no -> {
             getWinNumber(no)
@@ -36,8 +40,6 @@ public class SampleActivity04 extends AppCompatActivity {
                     .subscribe(textView::append);
         });
     }
-
-
     private Flowable<Lotto> getWinNumber(int number) {
         return LottoRequester.getInstance().api().getWinNumber("getLottoNumber", number);
     }

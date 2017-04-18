@@ -11,7 +11,6 @@ import io.reactivex.BackpressureStrategy;
 import io.reactivex.Flowable;
 import io.reactivex.FlowableEmitter;
 import io.reactivex.FlowableOnSubscribe;
-import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.annotations.NonNull;
 import io.reactivex.functions.Action;
@@ -29,7 +28,7 @@ public class SampleActivity01 extends AppCompatActivity {
         textView = (TextView) findViewById(R.id.textView);
 
         create();
-        createWithLambda();
+        just();
         fromIterable();
         blockSubscribe();
         asyncSubscribe();
@@ -39,7 +38,7 @@ public class SampleActivity01 extends AppCompatActivity {
         Flowable<String> f = Flowable.create(new FlowableOnSubscribe<String>() {
             @Override
             public void subscribe(@NonNull FlowableEmitter<String> e) throws Exception {
-
+                e.onNext("publish!!");
             }
         }, BackpressureStrategy.DROP);
 
@@ -61,16 +60,15 @@ public class SampleActivity01 extends AppCompatActivity {
         });
     }
 
-    private void createWithLambda() {
-        Observable.create(text -> {
+    private void just() {
+        Flowable.just("publish!!")
+                .subscribe(s -> {
 
-        }).subscribe(text -> {
+                }, e -> {
 
-        }, error -> {
+                }, () -> {
 
-        }, () -> {
-
-        });
+                });
     }
 
     private void fromIterable() {
