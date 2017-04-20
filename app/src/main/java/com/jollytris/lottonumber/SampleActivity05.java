@@ -10,7 +10,14 @@ import android.widget.TextView;
 import com.jakewharton.rxbinding2.view.RxView;
 import com.jakewharton.rxbinding2.widget.RxTextView;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.TimeUnit;
+
+import io.reactivex.Flowable;
 import io.reactivex.Observable;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.schedulers.Schedulers;
 
 public class SampleActivity05 extends AppCompatActivity {
 
@@ -52,6 +59,44 @@ public class SampleActivity05 extends AppCompatActivity {
                 (b1, b2, b3, b4, b5, b6) -> b1 && b2 && b3 && b4 && b5 && b6)
                 .subscribe(b -> {
                     RxView.enabled(requestButton).accept(b);
+                    stateTextView.setText(b ? "Click Button" : "Input all number");
                 });
+
+        RxView.clicks(requestButton).subscribe(e -> checkResult());
+    }
+
+    private void checkResult() {
+        //7 22 29 33 34 35
+        stateTextView.setText("checking...");
+        Flowable<Integer> l1 = getWinNumber(739).flatMapIterable(l -> l.getDrwtNos());
+        Flowable<Integer> l2 = Flowable.fromIterable(getInputs()).sorted();
+        Flowable.zip(l1, l2, (n1, n2) -> n1 == n2)
+                .delay(2, TimeUnit.SECONDS)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(no -> {
+                    if (no) {
+                        stateTextView.setText("matched");
+                    } else {
+                        throw new Exception("mismatched");
+                    }
+                }, e -> {
+                    stateTextView.setText("mismatched");
+                });
+    }
+
+    private List<Integer> getInputs() {
+        List<Integer> list = new ArrayList<>();
+        list.add(Integer.parseInt(number01.getText().toString()));
+        list.add(Integer.parseInt(number02.getText().toString()));
+        list.add(Integer.parseInt(number03.getText().toString()));
+        list.add(Integer.parseInt(number04.getText().toString()));
+        list.add(Integer.parseInt(number05.getText().toString()));
+        list.add(Integer.parseInt(number06.getText().toString()));
+        return list;
+    }
+
+    private Flowable<Lotto> getWinNumber(int number) {
+        return LottoRequester.getInstance().api().getWinNumber("getLottoNumber", number);
     }
 }

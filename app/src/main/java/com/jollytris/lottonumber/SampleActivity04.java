@@ -40,6 +40,7 @@ public class SampleActivity04 extends AppCompatActivity {
                     .subscribe(textView::append);
         });
     }
+
     private Flowable<Lotto> getWinNumber(int number) {
         return LottoRequester.getInstance().api().getWinNumber("getLottoNumber", number);
     }
